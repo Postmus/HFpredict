@@ -19,11 +19,11 @@ public class HazardHFrEF implements Function {
 		double hsTnT_1, hsTnT_2;
 		
 		if (stratum==1) {
-			a = 5.738;
-			b = 354.060;
+			a = 5.365;
+			b = 223.214;
 		} else {
-			a = 3.229;
-			b = 1092.458;
+			a = 2.973;
+			b = 490.346;
 		}
 		
 		if (patient.getHsTnT()<=2.5) {
@@ -35,7 +35,8 @@ public class HazardHFrEF implements Function {
 		}
 
 		baseline = (a/b)*Math.pow((time/b),(a-1));
-		xbeta = -0.859*patient.getFemale() + 0.159*patient.getChol() + 0.596*Math.log(patient.getProBNP()) - 0.180*hsTnT_1 + 0.371*hsTnT_2 + 0.010*patient.getHeartRate() + 0.677*patient.getSmoking() + 0.945*patient.getMi() + 0.086*patient.getBmi() - 0.516*patient.getCystaninC(); 
+		xbeta = -0.702*patient.getFemale() + 0.170*patient.getChol() + 0.604*Math.log(patient.getProBNP()) - 0.162*hsTnT_1 + 0.399*hsTnT_2 + 
+				0.595*patient.getSmoking() + 0.912*patient.getMi() + 0.067*patient.getBmi() - 1.046*Math.log(patient.getCreatinine()) + 2.429*patient.getWhr(); 
 		return baseline*Math.exp(xbeta);
 		
 	}	

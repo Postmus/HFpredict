@@ -19,11 +19,11 @@ public class HazardMort implements Function {
 		double hsTnT_1, hsTnT_2;
 		
 		if (stratum==1) {
-			a = 6.856;
-			b = 120.356;
+			a = 6.522;
+			b = 93.212;
 		} else {
-			a = 5.873;
-			b = 127.105;
+			a = 5.643;
+			b = 93.902;
 		}
 		
 		if (patient.getHsTnT()<=2.5) {
@@ -35,7 +35,9 @@ public class HazardMort implements Function {
 		}
 
 		baseline = (a/b)*Math.pow((time/b),(a-1));
-		xbeta = -0.452*patient.getFemale() + 0.126*Math.log(patient.getUae()) + 0.048*patient.getGluc() + 0.151*Math.log(patient.getHsCRP()) + 0.167*Math.log(patient.getProBNP()) - 0.168*hsTnT_1 + 0.116*hsTnT_2 + 0.010*patient.getHeartRate() + 0.536*patient.getSmoking() + 0.330*patient.getMi() - 0.024*patient.getBmi() + 0.301*patient.getCystaninC(); 
+		xbeta = -0.441*patient.getFemale() + 0.136*Math.log(patient.getUae()) + 0.211*patient.getChol() + 0.039*patient.getGluc() + 0.153*patient.getHsCRP() - 0.229*patient.getTgl() + 
+				0.170*Math.log(patient.getProBNP()) - 0.159*hsTnT_1 + 0.124*hsTnT_2 + 0.008*patient.getHeartRate() + 0.461*patient.getSmoking() + 0.345*patient.getMi() - 
+				0.032*patient.getBmi() + 0.585*patient.getStroke() - 0.176*patient.getLdl() + 0.784*patient.getCystaninC() - 0.933*Math.log(patient.getCreatinine()) + 1.894*patient.getWhr(); 
 		return baseline*Math.exp(xbeta);
 		
 	}	

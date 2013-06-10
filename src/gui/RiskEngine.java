@@ -39,7 +39,7 @@ public class RiskEngine extends JFrame {
 	public RiskEngine() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
-		this.setTitle("PREVEND new onset heart failure prediction model v0.1");
+		this.setTitle("The PREVEND risk model for new onset heart failure with reduced and preserved ejection fraction v0.1");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

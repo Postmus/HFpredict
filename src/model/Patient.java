@@ -2,27 +2,72 @@ package model;
 
 public class Patient {
 	
-	private int female, smoking, mi, proBNP, age;
-	private double uae, chol, gluc, hsCRP, hsTnT, heartRate, bmi, cystaninC;
+	private int female, smoking, mi, proBNP, age, stroke;
+	private double uae, chol, gluc, hsCRP, hsTnT, heartRate, bmi, cystaninC, tgl, ldl, whr, creatinine;
 	private double[][] predRisk;
 	
 	public Patient() {
 		female = 1;
 		smoking = 1;
 		mi = 0;
+		proBNP = 20;
 		age = 54;
+		stroke = 0;
 		uae = 19.03;
 		chol = 5.6;
 		gluc = 4.5;
 		hsCRP = 1.96;
-		proBNP = 20;
 		hsTnT = 2.5;
 		heartRate = 64;
 		bmi = 26.95312;
-		cystaninC = 0.78;  
+		cystaninC = 0.78;
+		tgl = 1.3;
+		ldl = 4;
+		whr = 0.90;
+		creatinine = 85;
 		predRisk = null;
 	}
 	
+	public int getStroke() {
+		return stroke;
+	}
+
+	public void setStroke(int stroke) {
+		this.stroke = stroke;
+	}
+
+	public double getTgl() {
+		return tgl;
+	}
+
+	public void setTgl(double tgl) {
+		this.tgl = tgl;
+	}
+
+	public double getLdl() {
+		return ldl;
+	}
+
+	public void setLdl(double ldl) {
+		this.ldl = ldl;
+	}
+
+	public double getWhr() {
+		return whr;
+	}
+
+	public void setWhr(double whr) {
+		this.whr = whr;
+	}
+
+	public double getCreatinine() {
+		return creatinine;
+	}
+
+	public void setCreatinine(double creatinine) {
+		this.creatinine = creatinine;
+	}
+
 	public int getFemale() {
 		return female;
 	}
