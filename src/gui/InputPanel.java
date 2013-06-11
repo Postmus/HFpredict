@@ -26,8 +26,8 @@ public class InputPanel extends JPanel {
 	private Patient patient;
 	private JComboBox comboBoxSex, comboBoxSmoking, comboBoxStroke, comboBoxMi;
 	private JLabel lblSex, lblSmoking, lblStroke, lblMi;
-	private JSpinner proBNPSpinner, ageSpinner;
-	private JLabel lblNtprobnp, lblAge;
+	private JSpinner proBNPSpinner, ageSpinner, uaeSpinner;
+	private JLabel lblNtprobnp, lblAge, lblUae;
 		
 	/**
 	 * Create the panel.
@@ -175,8 +175,7 @@ public class InputPanel extends JPanel {
 		gbc_proBNPSpinner.gridx = 1;
 		gbc_proBNPSpinner.gridy = 2;
 		add(proBNPSpinner, gbc_proBNPSpinner);
-		
-		
+			
 
 	}
 	

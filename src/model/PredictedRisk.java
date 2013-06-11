@@ -18,11 +18,11 @@ public class PredictedRisk {
 		double[] cumIncHFrEF = new double[PRED_WIDTH+1];
 		
 		for (int i = 0; i<=PRED_WIDTH; i++) {
-			time[i] = patient.getAge() + i;
-			cumIncHFpEF[i] = PROB_UAE_LOW*NumIntegrate.adaptive(integrandHFpEF_1, patient.getAge(), time[i]) + 
-					(1-PROB_UAE_LOW)*NumIntegrate.adaptive(integrandHFpEF_2, patient.getAge(), time[i]);
-			cumIncHFrEF[i] = PROB_UAE_LOW*NumIntegrate.adaptive(integrandHFrEF_1, patient.getAge(), time[i]) + 
-					(1-PROB_UAE_LOW)*NumIntegrate.adaptive(integrandHFrEF_2, patient.getAge(), time[i]);
+			time[i] = i;
+			cumIncHFpEF[i] = PROB_UAE_LOW*NumIntegrate.adaptive(integrandHFpEF_1, patient.getAge(), patient.getAge() + time[i]) + 
+					(1-PROB_UAE_LOW)*NumIntegrate.adaptive(integrandHFpEF_2, patient.getAge(), patient.getAge() + time[i]);
+			cumIncHFrEF[i] = PROB_UAE_LOW*NumIntegrate.adaptive(integrandHFrEF_1, patient.getAge(), patient.getAge() + time[i]) + 
+					(1-PROB_UAE_LOW)*NumIntegrate.adaptive(integrandHFrEF_2, patient.getAge(), patient.getAge() + time[i]);
 		}
 		
 		double[][] result = {time,cumIncHFpEF,cumIncHFrEF};

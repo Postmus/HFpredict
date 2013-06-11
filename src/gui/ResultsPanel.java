@@ -2,6 +2,9 @@ package gui;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -29,10 +32,14 @@ public class ResultsPanel extends JPanel {
 	 */
 	public ResultsPanel(Patient patient) {
 		this.patient = patient;
-				
+		
+		// Configure number format
+		NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
+		nf.setMaximumFractionDigits(4);
+						
 		// HFpEF
 		dataHFpEF = new DefaultXYDataset();
-		JFreeChart chart = ChartFactory.createXYLineChart(null, "Age (years)", "Cumulative incidence", dataHFpEF, PlotOrientation.VERTICAL, false, false, false);
+		JFreeChart chart = ChartFactory.createXYLineChart(null, "Time (years)", "Cumulative incidence", dataHFpEF, PlotOrientation.VERTICAL, false, false, false);
 		chart.setBackgroundPaint(null);
 		IncidenceCurveHFpEF = (XYPlot) chart.getPlot();
 		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) IncidenceCurveHFpEF.getRenderer();
@@ -41,14 +48,15 @@ public class ResultsPanel extends JPanel {
 		NumberAxis domainAxis = (NumberAxis) IncidenceCurveHFpEF.getDomainAxis();
 		domainAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
+		NumberAxis rangeAxisHFpEF = (NumberAxis) IncidenceCurveHFpEF.getRangeAxis();
+		rangeAxisHFpEF.setNumberFormatOverride(nf);
+		rangeAxisHFpEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));	
 		ChartPanel HFpEF = new ChartPanel(chart);
-		ValueAxis rangeAxisHFpEF = IncidenceCurveHFpEF.getRangeAxis();
-		rangeAxisHFpEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
 		HFpEF.setBorder(BorderFactory.createTitledBorder("HFpEF"));
 		
 		// HFrEF
 		dataHFrEF = new DefaultXYDataset();
-		JFreeChart chart2 = ChartFactory.createXYLineChart(null, "Age (years)", "Cumulative incidence", dataHFrEF, PlotOrientation.VERTICAL, false, false, false);
+		JFreeChart chart2 = ChartFactory.createXYLineChart(null, "Time (years)", "Cumulative incidence", dataHFrEF, PlotOrientation.VERTICAL, false, false, false);
 		chart2.setBackgroundPaint(null);
 		IncidenceCurveHFrEF = (XYPlot) chart2.getPlot();
 		XYLineAndShapeRenderer renderer2 = (XYLineAndShapeRenderer) IncidenceCurveHFrEF.getRenderer();
@@ -57,9 +65,10 @@ public class ResultsPanel extends JPanel {
 		NumberAxis domainAxis2 = (NumberAxis) IncidenceCurveHFrEF.getDomainAxis();
 		domainAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis2.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
-		ChartPanel HFrEF = new ChartPanel(chart2);
-		ValueAxis rangeAxisHFrEF = IncidenceCurveHFrEF.getRangeAxis();
+		NumberAxis rangeAxisHFrEF = (NumberAxis) IncidenceCurveHFrEF.getRangeAxis();
+		rangeAxisHFrEF.setNumberFormatOverride(nf);
 		rangeAxisHFrEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
+		ChartPanel HFrEF = new ChartPanel(chart2);
 		HFrEF.setBorder(BorderFactory.createTitledBorder("HFrEF"));
 		
 		// Add both panels together
