@@ -29,6 +29,6 @@ You should have received a copy of the GNU General Public License along with thi
 Building from source
 --------------------
 
-To compile COACH Risk Engine from source, the following libraries are required:
+To compile PREVEND risk model from source, the following libraries are required:
 - JfreeChart
 - Jcommon
