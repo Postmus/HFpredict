@@ -25,6 +25,12 @@ public class PredictedRisk {
 					(1-PROB_UAE_LOW)*NumIntegrate.adaptive(integrandHFrEF_2, patient.getAge(), patient.getAge() + time[i]);
 		}
 		
+		// Print output to validate results against reference implementation in R
+		System.out.println("HFpEF:");
+		System.out.println(NumIntegrate.adaptive(integrandHFpEF_1, patient.getAge(), patient.getAge() + PRED_WIDTH));
+		System.out.println("HFrEF:");
+		System.out.println(NumIntegrate.adaptive(integrandHFrEF_1, patient.getAge(), patient.getAge() + PRED_WIDTH));
+				
 		double[][] result = {time,cumIncHFpEF,cumIncHFrEF};
 		return result;
 	}

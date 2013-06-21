@@ -32,10 +32,6 @@ public class ResultsPanel extends JPanel {
 	 */
 	public ResultsPanel(Patient patient) {
 		this.patient = patient;
-		
-		// Configure number format
-		NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
-		nf.setMaximumFractionDigits(4);
 						
 		// HFpEF
 		dataHFpEF = new DefaultXYDataset();
@@ -49,7 +45,6 @@ public class ResultsPanel extends JPanel {
 		domainAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
 		NumberAxis rangeAxisHFpEF = (NumberAxis) IncidenceCurveHFpEF.getRangeAxis();
-		rangeAxisHFpEF.setNumberFormatOverride(nf);
 		rangeAxisHFpEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));	
 		ChartPanel HFpEF = new ChartPanel(chart);
 		HFpEF.setBorder(BorderFactory.createTitledBorder("HFpEF"));
@@ -66,7 +61,6 @@ public class ResultsPanel extends JPanel {
 		domainAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis2.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
 		NumberAxis rangeAxisHFrEF = (NumberAxis) IncidenceCurveHFrEF.getRangeAxis();
-		rangeAxisHFrEF.setNumberFormatOverride(nf);
 		rangeAxisHFrEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
 		ChartPanel HFrEF = new ChartPanel(chart2);
 		HFrEF.setBorder(BorderFactory.createTitledBorder("HFrEF"));

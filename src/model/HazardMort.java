@@ -35,7 +35,7 @@ public class HazardMort implements Function {
 		}
 
 		baseline = (a/b)*Math.pow((time/b),(a-1));
-		xbeta = -0.441*patient.getFemale() + 0.136*Math.log(patient.getUae()) + 0.211*patient.getChol() + 0.039*patient.getGluc() + 0.153*patient.getHsCRP() - 0.229*patient.getTgl() + 
+		xbeta = -0.441*patient.getFemale() + 0.136*Math.log(patient.getUae()) + 0.211*patient.getChol() + 0.039*patient.getGluc() + 0.153*Math.log(patient.getHsCRP()) - 0.229*Math.log(patient.getTgl()) + 
 				0.170*Math.log(patient.getProBNP()) - 0.159*hsTnT_1 + 0.124*hsTnT_2 + 0.008*patient.getHeartRate() + 0.461*patient.getSmoking() + 0.345*patient.getMi() - 
 				0.032*patient.getBmi() + 0.585*patient.getStroke() - 0.176*patient.getLdl() + 0.784*patient.getCystaninC() - 0.933*Math.log(patient.getCreatinine()) + 1.894*patient.getWhr(); 
 		return baseline*Math.exp(xbeta);

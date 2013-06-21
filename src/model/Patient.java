@@ -2,30 +2,29 @@ package model;
 
 public class Patient {
 	
-	private int female, smoking, mi, proBNP, age, stroke;
-	private double uae, chol, gluc, hsCRP, hsTnT, heartRate, bmi, cystaninC, tgl, ldl, whr, creatinine;
+	private int female, smoking, mi, stroke;
+	private double uae, chol, gluc, hsCRP, hsTnT, heartRate, bmi, cystaninC, tgl, ldl, whr, creatinine, proBNP, age;
 	private double[][] predRisk;
 	
 	public Patient() {
 		female = 1;
-		smoking = 1;
+		smoking = 0;
 		mi = 0;
 		proBNP = 20;
-		age = 54;
+		age = 60;
 		stroke = 0;
-		uae = 19.03;
+		uae = 19.1;
 		chol = 5.6;
 		gluc = 4.5;
-		hsCRP = 1.96;
+		hsCRP = 1.3;
 		hsTnT = 2.5;
 		heartRate = 64;
-		bmi = 26.95312;
-		cystaninC = 0.78;
-		tgl = 1.3;
-		ldl = 4;
-		whr = 0.90;
-		creatinine = 85;
-		predRisk = null;
+		bmi = 25.6;
+		cystaninC = 0.77;
+		tgl = 1.15;
+		ldl = 3.62;
+		whr = 0.88;
+		creatinine = 82;
 	}
 	
 	public int getStroke() {
@@ -92,11 +91,11 @@ public class Patient {
 		this.mi = mi;
 	}
 	
-	public int getAge() {
+	public double getAge() {
 		return age;
 	}
 	
-	public void setAge(int age) {
+	public void setAge(double age) {
 		this.age = age;
 	}
 	
@@ -132,11 +131,11 @@ public class Patient {
 		this.hsCRP = hsCRP;
 	}
 	
-	public int getProBNP() {
+	public double getProBNP() {
 		return proBNP;
 	}
 	
-	public void setProBNP(int proBNP) {
+	public void setProBNP(double proBNP) {
 		this.proBNP = proBNP;
 	}
 	
