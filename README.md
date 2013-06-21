@@ -1,7 +1,7 @@
 PREVEND risk model
 =========
 
-The PREVEND risk model is a competing risks model for predicting new onset heart failure with preserved and reduced ejection fraction in the general population.
+The PREVEND risk model is a competing risks model for predicting new onset heart failure with reduced and preserved ejection fraction in the general population.
 
 
 Requirements
