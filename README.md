@@ -12,7 +12,7 @@ Java 6.
 Versions
 --------
 
-The model is still under construction and has therefore not been released yet.
+1.0: Initial release.
 
 Copyright & copying permission
 ------------------------------

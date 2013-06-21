@@ -25,6 +25,7 @@ public class Patient {
 		ldl = 3.62;
 		whr = 0.88;
 		creatinine = 82;
+		predRisk = null;
 	}
 	
 	public int getStroke() {
