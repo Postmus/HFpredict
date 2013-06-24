@@ -29,7 +29,7 @@ You should have received a copy of the GNU General Public License along with thi
 Building from source
 --------------------
 
-The source code of PREVEMD risk model can be obtained from: https://github.com/Postmus/HFpredict
+The source code of PREVEND risk model can be obtained from: https://github.com/Postmus/HFpredict
 
 In addition, to compile PREVEND risk model from source, the following external libraries are required:
 - JfreeChart
