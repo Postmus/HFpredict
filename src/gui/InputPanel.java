@@ -95,7 +95,7 @@ public class InputPanel extends JPanel {
 		add(new JLabel("Age (years):"), InputPanel.gbcLabel(0, 0));
 		add(ageSpinner, InputPanel.gbcSpinner(1,0));
 		
-		proBNPSpinner = InputPanel.spinnerFactory(patient.getProBNP(), 10, 200, 1);
+		proBNPSpinner = InputPanel.spinnerFactory(patient.getProBNP(), 5, 63377, 1);
 		proBNPSpinner.addChangeListener(new ProBNPChangeListener());
 		add(new JLabel("NT-proBNP (ng/L):"), InputPanel.gbcLabel(0, 2));
 		add(proBNPSpinner, InputPanel.gbcSpinner(1,2));
@@ -110,7 +110,7 @@ public class InputPanel extends JPanel {
 		add(new JLabel("Glucose (mmol/L):"), InputPanel.gbcLabel(4, 1));
 		add(glucSpinner, InputPanel.gbcSpinner(5,1));
 		
-		uaeSpinner = InputPanel.spinnerFactory(patient.getUae(), 1, 100, 1);
+		uaeSpinner = InputPanel.spinnerFactory(patient.getUae(), 1, 4710, 1);
 		uaeSpinner.addChangeListener(new UaeChangeListener());
 		add(new JLabel("Urinary albumin excretion (mg/24H):"), InputPanel.gbcLabel(4, 2));
 		add(uaeSpinner, InputPanel.gbcSpinner(5,2));
