@@ -25,7 +25,7 @@ public class ResultsPanel extends JPanel {
 	private Patient patient;
 	private DefaultXYDataset dataHFpEF, dataHFrEF; 
 	private XYPlot IncidenceCurveHFpEF, IncidenceCurveHFrEF;
-	
+	private NumberAxis rangeAxisHFpEF, rangeAxisHFrEF;
 	
 	/**
 	 * Create the panel.
@@ -44,7 +44,7 @@ public class ResultsPanel extends JPanel {
 		NumberAxis domainAxis = (NumberAxis) IncidenceCurveHFpEF.getDomainAxis();
 		domainAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
-		NumberAxis rangeAxisHFpEF = (NumberAxis) IncidenceCurveHFpEF.getRangeAxis();
+		rangeAxisHFpEF = (NumberAxis) IncidenceCurveHFpEF.getRangeAxis();
 		rangeAxisHFpEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));	
 		ChartPanel HFpEF = new ChartPanel(chart);
 		HFpEF.setBorder(BorderFactory.createTitledBorder("HFpEF"));
@@ -60,7 +60,7 @@ public class ResultsPanel extends JPanel {
 		NumberAxis domainAxis2 = (NumberAxis) IncidenceCurveHFrEF.getDomainAxis();
 		domainAxis2.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		domainAxis2.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
-		NumberAxis rangeAxisHFrEF = (NumberAxis) IncidenceCurveHFrEF.getRangeAxis();
+		rangeAxisHFrEF = (NumberAxis) IncidenceCurveHFrEF.getRangeAxis();
 		rangeAxisHFrEF.setLabelFont(new Font("TimesNewRoman", Font.PLAIN, 12));
 		ChartPanel HFrEF = new ChartPanel(chart2);
 		HFrEF.setBorder(BorderFactory.createTitledBorder("HFrEF"));
@@ -90,6 +90,16 @@ public class ResultsPanel extends JPanel {
 		IncidenceCurveHFpEF.setDataset(dataHFpEF);
 		setDataHFrEF();
 		IncidenceCurveHFrEF.setDataset(dataHFrEF);
+		double maxHFpEF = patient.getPredRisk()[1][patient.getPredRisk()[1].length - 1];
+		double maxHFrEF = patient.getPredRisk()[2][patient.getPredRisk()[2].length - 1];
+		double margin = 1.05;
+		if (maxHFpEF>=maxHFrEF) {
+			rangeAxisHFpEF.setUpperBound(maxHFpEF*margin);
+			rangeAxisHFrEF.setUpperBound(maxHFpEF*margin);
+		} else {
+			rangeAxisHFpEF.setUpperBound(maxHFrEF*margin);
+			rangeAxisHFrEF.setUpperBound(maxHFrEF*margin);
+		}
 	}
 	
 }

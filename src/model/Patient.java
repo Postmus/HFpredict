@@ -10,7 +10,7 @@ public class Patient {
 		female = 1;
 		smoking = 0;
 		mi = 0;
-		proBNP = 20;
+		proBNP = 200;
 		age = 60;
 		stroke = 0;
 		uae = 19.1;
